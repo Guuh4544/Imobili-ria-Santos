@@ -72,16 +72,16 @@ body {
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
+  min-height: 60px;
 }
 
 .logo {
-  width: 100px;
+  width: 120px;
   height: auto;
   transition: var(--transicao);
-}
-
-.logo:hover {
-  transform: scale(1.05);
+  position: relative;
+  z-index: 1002;
+  display: block;
 }
 
 /* Menu Desktop */
@@ -132,27 +132,17 @@ body {
   border: none;
   cursor: pointer;
   padding: 10px;
-  z-index: 1001;
+  z-index: 1002;
+  position: relative;
 }
 
 .menu-toggle span {
-  width: 30px;
-  height: 3px;
-  background-color: var(--cor-texto);
+  width: 32px;
+  height: 4px;
+  background-color: #0d3d5c;
   transition: var(--transicao);
   border-radius: 3px;
-}
-
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
+  display: block;
 }
 
 /* Menu Mobile */
@@ -170,26 +160,7 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
-}
-
-.nav-mobile.active {
-  max-height: 400px;
-}
-
-.link-mobile {
-  color: var(--cor-texto);
-  font-size: 18px;
-  font-weight: 600;
-  text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  transition: var(--transicao);
-  text-align: center;
-}
-
-.link-mobile:hover {
-  background-color: var(--cor-primaria);
-  color: var(--cor-texto-claro);
+  z-index: 999;
 }
 
 /* === Banner === */
@@ -212,11 +183,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(29, 128, 193, 0.85) 0%,
-    rgba(175, 221, 251, 0.7) 100%
-  );
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -500,12 +467,14 @@ body {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: var(--sombra);
+  min-height: 300px;
 }
 
 .mapa {
   width: 100%;
   height: 400px;
   border: 0;
+  display: block;
 }
 
 .contato-info {
@@ -627,6 +596,10 @@ body {
   .paragrafo {
     text-align: left;
   }
+
+  .mapa {
+    height: 350px;
+  }
 }
 
 /* Mobile */
@@ -641,6 +614,20 @@ body {
 
   .nav-mobile {
     display: flex;
+  }
+
+  .topo {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    width: 90px;
+  }
+
+  .menu-toggle span {
+    width: 30px;
+    height: 3.5px;
+    background-color: #0d3d5c;
   }
 
   .banner {
@@ -688,6 +675,8 @@ body {
 
   .mapa {
     height: 300px;
+    min-height: 280px;
+    width: 100%;
   }
 
   .btn-topo {
@@ -705,7 +694,17 @@ body {
 /* Mobile Pequeno */
 @media (max-width: 480px) {
   .logo {
-    width: 80px;
+    width: 75px;
+  }
+
+  .menu-toggle {
+    padding: 8px;
+  }
+
+  .menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background-color: #0d3d5c;
   }
 
   .banner {
@@ -714,10 +713,16 @@ body {
 
   .banner-titulo {
     font-size: 1.5rem;
+    padding: 0 10px;
   }
 
   .banner-subtitulo {
     font-size: 0.9rem;
+  }
+
+  .btn-banner {
+    padding: 10px 25px;
+    font-size: 15px;
   }
 
   .stats-grid {
@@ -735,5 +740,178 @@ body {
 
   .paragrafo {
     font-size: 15px;
+  }
+
+  .mapa {
+    height: 250px;
+    min-height: 250px;
+    width: 100%;
+  }
+
+  .escritorio-item {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .escritorio-icone {
+    font-size: 1.5rem;
+  }
+}
+
+/* Adicionado media query específico para iPhone (375px - 414px) */
+@media (max-width: 414px) {
+  .topo {
+    padding: 12px 15px;
+  }
+
+  .topo .container {
+    padding: 0 10px;
+    min-height: 55px;
+  }
+
+  .logo {
+    width: 70px;
+    max-width: 70px;
+  }
+
+  .menu-toggle {
+    padding: 6px;
+  }
+
+  .menu-toggle span {
+    width: 26px;
+    height: 3px;
+    background-color: #0d3d5c;
+  }
+
+  .banner {
+    height: 320px;
+  }
+
+  .banner-titulo {
+    font-size: 1.3rem;
+    line-height: 1.3;
+  }
+
+  .banner-subtitulo {
+    font-size: 0.85rem;
+  }
+
+  .secao {
+    padding: 35px 12px;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .titulo-secao,
+  .titulo-secao-branco {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+
+  .subtitulo-secao {
+    font-size: 1rem;
+  }
+
+  .paragrafo {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .stat-card {
+    padding: 20px 15px;
+  }
+
+  .stat-numero {
+    font-size: 1.8rem;
+  }
+
+  .stat-texto {
+    font-size: 0.9rem;
+  }
+
+  .servico-card {
+    padding: 30px 20px;
+  }
+
+  .servico-icone {
+    font-size: 3rem;
+  }
+
+  .servico-titulo {
+    font-size: 1.3rem;
+  }
+
+  .servico-descricao {
+    font-size: 0.9rem;
+  }
+
+  .mapa {
+    height: 220px;
+    min-height: 220px;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .mapa-container {
+    min-height: 220px;
+  }
+
+  .contato-info {
+    padding: 0 5px;
+  }
+
+  .escritorio-item {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .escritorio-item strong {
+    font-size: 1rem;
+  }
+
+  .escritorio-item p {
+    font-size: 0.85rem;
+  }
+
+  .btn-topo {
+    width: 40px;
+    height: 40px;
+    bottom: 15px;
+    right: 15px;
+    font-size: 20px;
+  }
+
+  .footer {
+    padding: 25px 15px;
+    font-size: 14px;
+  }
+}
+
+/* Adicionado media query para iPhone muito pequeno (320px) */
+@media (max-width: 375px) {
+  .logo {
+    width: 65px;
+    max-width: 65px;
+  }
+
+  .banner-titulo {
+    font-size: 1.2rem;
+  }
+
+  .titulo-secao,
+  .titulo-secao-branco {
+    font-size: 1.3rem;
+  }
+
+  .mapa {
+    height: 200px;
+    min-height: 200px;
+  }
+
+  .mapa-container {
+    min-height: 200px;
   }
 }
